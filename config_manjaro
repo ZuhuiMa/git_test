@@ -1,0 +1,26 @@
+#cn库连接失败
+sudo pacman -S sl
+
+#配置中文输入法
+sudo pacman -Sy fcitx-config \
+fcitx-gtk2 \
+fcitx-gtk3 \
+fcitx-qt4 \
+fcitx-qt5 \
+fcitx-sogoupinyin
+
+sudo echo 'export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XIM=fcitx
+export XIM_PROGRAM=fcitx' >> ~./bashrc
+
+source ./bashrc
+
+
+
+#Gnome下
+
+gsettings set \
+ org.gnome.settings-daemon.plugins.xsettings overrides \
+ "{'Gtk/IMModule':<'fcitx'>}"
